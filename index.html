@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 Гайды</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a14;
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: #1a1a2a;
+            padding: 20px 0;
+            border-bottom: 3px solid #d13639;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d13639;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        
+        nav a:hover {
+            color: #d13639;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #d13639;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #d13639;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #b02e31;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #d13639;
+        }
+        
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .hero-card {
+            background: #1a1a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .hero-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .hero-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .hero-card h3 {
+            padding: 15px;
+            font-size: 20px;
+        }
+        
+        .hero-card p {
+            padding: 0 15px 15px;
+            color: #aaa;
+        }
+        
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .guide-card {
+            background: #1a1a2a;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #d13639;
+        }
+        
+        .guide-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .guide-card p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        .roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .role {
+            background: #1a1a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .role h4 {
+            color: #d13639;
+            margin-bottom: 10px;
+        }
+        
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .news-item {
+            background: #1a1a2a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        
+        .news-item h3 {
+            color: #d13639;
+            margin-bottom: 10px;
+        }
+        
+        .news-date {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #d13639;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a2a;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        footer {
+            background: #1a1a2a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid #d13639;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #d13639;
+            border-radius: 5px;
+        }
+        
+        .copyright {
+            color: #aaa;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Dota<span>Guides</span></div>
+            <nav>
+                <a href="#home">Главная</a>
+                <a href="#heroes">Герои</a>
+                <a href="#guides">Гайды</a>
+                <a href="#roles">Роли</a>
+                <a href="#news">Новости</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Лучшие гайды по Dota 2</h1>
+            <p>Улучши свой скилл и подними MMR с помощью профессиональных гайдов и советов</p>
+            <a href="#guides" class="btn">Смотреть гайды</a>
+        </div>
+    </section>
+    
+    <section id="heroes">
+        <div class="container">
+            <h2 class="section-title">Популярные герои</h2>
+            <div class="heroes-grid">
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png" alt="Pudge">
+                    <h3>Pudge</h3>
+                    <p>Мясник - роумер и инициатор</p>
+                </div>
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" alt="Invoker">
+                    <h3>Invoker</h3>
+                    <p>Призыватель - сложный маг с 10 заклинаниями</p>
+                </div>
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin">
+                    <h3>Phantom Assassin</h3>
+                    <p>Кэрри с огромным уроном в крит</p>
+                </div>
+                <div class="hero-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png" alt="Earthshaker">
+                    <h3>Earthshaker</h3>
+                    <p>Инициатор с мощным ультом</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="guides">
+        <div class="container">
+            <h2 class="section-title">Гайды для новичков</h2>
+            <div class="guides-grid">
+                <div class="guide-card">
+                    <h3>Основы ластхита</h3>
+                    <p>Научись правильно добивать крипов для максимального фарма</p>
+                    <a href="#" class="btn">Читать</a>
+                </div>
+                <div class="guide-card">
+                    <h3>Позиционирование в тиммейтах</h3>
+                    <p>Как правильно стоять в командных драках</p>
+                    <a href="#" class="btn">Читать</a>
+                </div>
+                <div class="guide-card">
+                    <h3>Карта и варды</h3>
+                    <p>Где ставить обзорные точки и как читать карту</p>
+                    <a href="#" class="btn">Читать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="roles">
+        <div class="container">
+            <h2 class="section-title">Роли в Dota 2</h2>
+            <div class="roles">
+                <div class="role">
+                    <h4>Кэрри (1 позиция)</h4>
+                    <p>Основной урон команды</p>
+                </div>
+                <div class="role">
+                    <h4>Мид (2 позиция)</h4>
+                    <p>Соло на средней линии</p>
+                </div>
+                <div class="role">
+                    <h4>Оффлейнер (3 позиция)</h4>
+                    <p>Танк и инициатор</p>
+                </div>
+                <div class="role">
+                    <h4>Саппорт (4 позиция)</h4>
+                    <p>Роуминг саппорт</p>
+                </div>
+                <div class="role">
+                    <h4>Хард саппорт (5 позиция)</h4>
+                    <p>Полный саппорт</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Последние новости</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <h3>Новый патч 7.35</h3>
+                    <div class="news-date">15 декабря 2023</div>
+                    <p>Вышел крупный баланс-патч с изменениями героев и предметов</p>
+                </div>
+                <div class="news-item">
+                    <h3>Обновление интерфейса</h3>
+                    <div class="news-date">10 декабря 2023</div>
+                    <p>Добавлены новые функции в клиенте Dota 2</p>
+                </div>
+                <div class="news-item">
+                    <h3>Киберспорт</h3>
+                    <div class="news-date">5 декабря 2023</div>
+                    <p>Анонсирован новый турнир с призовым фондом $1,000,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Подпишись на обновления</h2>
+            <form style="max-width: 600px; margin: 0 auto;">
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Ваш MMR</label>
+                    <select class="form-control">
+                        <option>0-1000</option>
+                        <option>1000-2000</option>
+                        <option>2000-3000</option>
+                        <option>3000-4000</option>
+                        <option>4000+</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Подписаться</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">Dota<span>Guides</span></div>
+            <p>Лучшие гайды по Dota 2 для всех уровней игры</p>
+            <div class="social-links">
+                <a href="#">VK</a>
+                <a href="#">Telegram</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="copyright">© 2023 DotaGuides. Все права защищены.</div>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за подписку!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
